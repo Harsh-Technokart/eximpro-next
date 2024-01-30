@@ -1,0 +1,12 @@
+.home{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.topbar{
+    width: 100vw;
+    height: 5vh;
+}
+.home-body{
+    width: 100vw
+}

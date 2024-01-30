@@ -1,0 +1,57 @@
+.navbar {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 1rem 0rem;
+  background-color: #bae1ff;
+}
+.user-details {
+  display: flex;
+  text-align: right;
+}
+.right-wing {
+  display: flex;
+}
+.logout {
+  margin: 1rem;
+}
+
+.avatar-hovered {
+  transform: rotateY(180deg);
+  transition: transform 0.05s ease-in-out;
+  filter: drop-shadow(0px 5px 0.25rem #6d6d6d);
+  background-color: #0e0e0e;
+  margin: 10px;
+}
+
+.avatar-unhovered {
+  transform: rotateY(360deg);
+  transition: transform 0.05s ease-in-out;
+  filter: drop-shadow(0px 5px 0.25rem #6d6d6d);
+  background-color: #ffffba;
+  margin: 10px;
+}
+
+.avatar-hovered .MuiSvgIcon-root {
+  display: inline-block;
+}
+
+.avatar-hovered::before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 48px; /* Adjust this based on your Avatar's size */
+  top: 50%;
+  transform: translateY(-50%);
+  color: transparent;
+}
+
+.avatar-hovered .logout {
+  color: #ffffff; /* Change the color to match your design */
+}
+
+.avatar-unhovered .logout {
+  color: #000000; /* Change the color to match your design */
+}
