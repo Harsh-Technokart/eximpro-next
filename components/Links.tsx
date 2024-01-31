@@ -23,35 +23,29 @@ export default function Links() {
       </Link>
       <br />
       <br />
-      <Link href="/company-users/company-sales-master">Sales Master</Link>
+      <Link href="/company-users/sales">Sales Master</Link>
       <br />
-      <Link href="/company-users/company-sales-maker">Sales Maker</Link>
+      <Link href="/company-users/sales">Sales Maker</Link>
       <br />
-      <Link href="/company-users/company-sales-checker">Sales Checker</Link>
+      <Link href="/company-users/sales">Sales Checker</Link>
       <br />
-      <Link href="/company-users/company-logistics-master">
-        Logistics Master
-      </Link>
+      <Link href="/company-users/logistics">Logistics Master</Link>
       <br />
-      <Link href="/company-users/company-logistics-maker">Logistics Maker</Link>
+      <Link href="/company-users/logistics">Logistics Maker</Link>
       <br />
-      <Link href="/company-users/company-logistics-checker">
-        Logistics Checker
-      </Link>
+      <Link href="/company-users/logistics">Logistics Checker</Link>
       <br />
-      <Link href="/company-users/company-finance-master">Finance Master</Link>
+      <Link href="/company-users/finance">Finance Master</Link>
       <br />
-      <Link href="/company-users/company-finance-maker">Finance Maker</Link>
+      <Link href="/company-users/finance">Finance Maker</Link>
       <br />
-      <Link href="/company-users/company-finance-checker">Finance Checker</Link>
+      <Link href="/company-users/finance">Finance Checker</Link>
       <br />
-      <Link href="/company-users/company-purchase-master">Purchase Master</Link>
+      <Link href="/company-users/purchase">Purchase Master</Link>
       <br />
-      <Link href="/company-users/company-purchase-maker">Purchase Maker</Link>
+      <Link href="/company-users/purchase">Purchase Maker</Link>
       <br />
-      <Link href="/company-users/company-purchase-checker">
-        Purchase Checker
-      </Link>
+      <Link href="/company-users/purchase">Purchase Checker</Link>
     </div>
   );
 }
