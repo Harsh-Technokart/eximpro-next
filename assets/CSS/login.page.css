@@ -34,25 +34,27 @@
   width: 100%;
   margin: auto;
   z-index: 1;
-  text-align: center;
+  text-align: left;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-bottom: 2rem;
-  font-weight: 500;
-  font-size: 2.5rem;
+  margin-left: 15%;
+  font-weight: 300;
+  font-size: 4rem;
 }
 
 .filler-sub-text {
   display: flex;
   width: 100%;
-  margin: 1rem;
   z-index: 1;
-  text-align: center;
+  text-align: left;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 1rem;
   margin-bottom: 2rem;
+  margin-left: 15%;
   font-weight: 500;
 }
 
@@ -90,7 +92,7 @@
   border: 0.5px solid #12263a;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #12263a;
+  background-color: #1971c2;
   margin: 1rem;
 }
 
@@ -165,7 +167,10 @@
     font-weight: 500;
     font-size: 2.5rem;
   }
-
+  .submit-button {
+    margin: auto;
+    width: auto;
+  }
   .submit-button-coverup {
     align-items: center;
     justify-content: stretch;

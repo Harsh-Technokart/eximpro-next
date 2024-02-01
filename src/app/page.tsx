@@ -68,16 +68,10 @@ export default function SystemUsers() {
         </form>
       </div>
       <div className="filler">
-        <h1 className="filler-text">Exim Pro</h1>
-        <h3 className="filler-sub-text">
-          Point Number 1 why you should use this
-        </h3>
-        <h3 className="filler-sub-text">
-          Point Number 2 why you should use this
-        </h3>
-        <h3 className="filler-sub-text">
-          Point Number 3 why you should use this
-        </h3>
+        <h1 className="filler-text">Exim Pro App</h1>
+        <h3 className="filler-sub-text">Feature 0</h3>
+        <h3 className="filler-sub-text">Feature 1</h3>
+        <h3 className="filler-sub-text">Feature 2</h3>
       </div>
     </div>
   );
