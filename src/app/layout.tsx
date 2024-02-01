@@ -22,7 +22,7 @@ export default function RootLayout({
     };
 
     fetchData();
-  }, [router]);
+  }, []);
 
   return (
     <html lang="en">

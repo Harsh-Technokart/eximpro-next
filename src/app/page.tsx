@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
-import { login } from "../../assets/API/login";
+import { login, checksession } from "../../assets/API/login";
 import { useRouter } from "next/navigation";
 import { rerouter } from "../../assets/js-modules/login-redirect";
 
@@ -22,6 +22,20 @@ export default function SystemUsers() {
       rerouter(res, router);
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const session_status: { status: boolean; data: undefined | object } =
+          await checksession();
+        rerouter(session_status, router);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
