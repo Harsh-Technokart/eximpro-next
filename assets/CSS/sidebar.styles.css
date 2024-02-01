@@ -1,5 +1,6 @@
 .sidebar-items {
   min-width: 20vw;
+  padding: 1rem;
   width: fit-content;
   height: 100%;
   display: flex;

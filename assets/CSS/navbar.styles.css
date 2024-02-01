@@ -5,13 +5,16 @@
   padding: 1rem 0rem;
   background-color: #bae1ff;
 }
+
 .user-details {
   display: flex;
   text-align: right;
 }
+
 .right-wing {
   display: flex;
 }
+
 .logout {
   margin: 1rem;
 }
@@ -20,7 +23,7 @@
   transform: rotateY(180deg);
   transition: transform 0.05s ease-in-out;
   filter: drop-shadow(0px 5px 0.25rem #6d6d6d);
-  background-color: #0e0e0e;
+  color: rgb(0, 0, 0);
   margin: 10px;
 }
 
@@ -28,7 +31,7 @@
   transform: rotateY(360deg);
   transition: transform 0.05s ease-in-out;
   filter: drop-shadow(0px 5px 0.25rem #6d6d6d);
-  background-color: #ffffba;
+  color: #bebfff;
   margin: 10px;
 }
 
@@ -49,9 +52,11 @@
 }
 
 .avatar-hovered .logout {
-  color: #ffffff; /* Change the color to match your design */
+  color: #bebfff;
+  background-color: #282622; /* Change the color to match your design */
 }
 
 .avatar-unhovered .logout {
-  color: #000000; /* Change the color to match your design */
+  color: rgb(0, 0, 0);
+  background-color: #bebfff; /* Change the color to match your design */
 }

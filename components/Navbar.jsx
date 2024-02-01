@@ -7,20 +7,25 @@ import Tooltip from "@mui/material/Tooltip";
 import { useRouter } from "next/navigation";
 import { logout, checksession } from "../assets/API/login";
 import { rerouter } from "../assets/js-modules/login-redirect";
+import { user_type_formatter } from "../assets/js-modules/data-formatter";
 import "../assets/CSS/navbar.styles.css";
 
 function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter()
-  //! these details should ideally come from the session storage
+  let credentials = sessionStorage.getItem("creds")
+  console.log("credentials:perspective-navbar:", credentials)
+  console.log("type:", typeof (credentials))
+  credentials = JSON.parse(credentials)
+  console.log("credentials:perspective-navbar;postparsing:", credentials)
   const userDetails = {
-    name: "Javed",
-    email: "javed.jeffery@eximpro.com",
-    rights: "Exim Owner",
+    ...credentials,
+    user_type: user_type_formatter(credentials.user_type),
     get initial() {
       return this.name.split("")[0];
     },
   };
+
   let timeout;
   return (
     <div className="navbar-parent">
@@ -37,9 +42,9 @@ function Navbar() {
           <div className="user-details">
             <>{userDetails.name}</>
             <br />
-            <>{userDetails.rights}</>
+            <>{userDetails.user_type}</>
             <br />
-            <>{userDetails.email}</>
+            <>{userDetails.email_address}</>
             <br />
           </div>
           <Tooltip title="Logout">
@@ -60,6 +65,7 @@ function Navbar() {
                 }
               }}
               className={isHovered ? "avatar-hovered" : "avatar-unhovered"}
+              sx={{ bgcolor: isHovered ? "#282622" : "#bebfff" }}
             >
               {isHovered ? (
                 <LogoutIcon className="logout" />

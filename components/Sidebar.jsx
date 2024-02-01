@@ -8,12 +8,16 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import CloseIcon from "@mui/icons-material/Close";
 import TableRowsIcon from "@mui/icons-material/TableRows";
 import AccessibleForwardIcon from "@mui/icons-material/AccessibleForward";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Avatar from "@mui/material/Avatar";
+import { logout, checksession } from "../assets/API/login";
+import { rerouter } from "../assets/js-modules/login-redirect";
+import { useRouter } from "next/navigation";
 import "../assets/CSS/sidebar.styles.css";
 
 function Sidebar(props) {
   const [state, setState] = React.useState(false);
-
+  const router = useRouter()
   const toggleDrawer = () => {
     setState((currentvalue) => !currentvalue);
   };
@@ -22,15 +26,15 @@ function Sidebar(props) {
     <div>
       <React.Fragment>
         <TableRowsIcon className="toggle-drawer-icon" onClick={toggleDrawer} />
-        <Drawer className="sidebar" open={state} onClose={toggleDrawer}>
+        <Drawer className="sidebar" open={state} onClose={toggleDrawer} >
           <CloseIcon className="close-icon" onClick={toggleDrawer} />
           <div className="user-details">
             <Avatar className="avatar">{props.userDetails.initial}</Avatar>
             <p className="user-details-name">{props.userDetails.name}</p>
-            <p className="user-details-rights">{props.userDetails.rights}</p>
-            <p className="user-details-email">{props.userDetails.email}</p>
+            <p className="user-details-rights">{props.userDetails.user_type}</p>
+            <p className="user-details-email">{props.userDetails.email_address}</p>
           </div>
-          <List className="sidebar-items">
+          <ul className="sidebar-items" >
             {props.sidebarItems.map((list_item, index) => (
               <ListItem className="list-item" key={index} disablePadding>
                 <ListItemButton>
@@ -45,7 +49,20 @@ function Sidebar(props) {
                 </ListItemButton>
               </ListItem>
             ))}
-          </List>
+          </ul>
+          <ListItemButton>
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <p className="list-item-text" onClick={
+              async () => {
+                console.log("Logging out...");
+                await logout()
+                const session_status = await checksession()
+                rerouter(session_status, router)
+              }
+            } >Logout</p>
+          </ListItemButton>
         </Drawer>
       </React.Fragment>
     </div>

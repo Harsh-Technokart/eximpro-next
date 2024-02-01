@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { checksession } from "../../assets/API/login";
 import { rerouter } from "../../assets/js-modules/login-redirect";
+import "../../assets/CSS/root.css";
 
 export default function RootLayout({
   children,
