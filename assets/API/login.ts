@@ -26,6 +26,7 @@ export const login = async (creds: {
       },
       request_headers
     );
+    console.log("loginresponse:: ", response);
     return response.data;
   } catch (error: any) {
     return error.response.data;
@@ -34,18 +35,26 @@ export const login = async (creds: {
 
 export const checksession = async (): Promise<{
   status: boolean;
-  data: object | undefined;
+  data: {
+    email_address: string;
+    _id: string;
+    user_type: string | null | undefined;
+    user_rights: string | null | undefined;
+    org_company_id: string | null | undefined;
+    name: string | null | undefined;
+    categories: Array<string>;
+  };
 }> => {
   try {
-    const response: { status: boolean; data: undefined | object } =
-      await axios.get(`${backendUrl}/server/session`, request_headers);
-    return {
-      status: response.status,
-      data: response.data ? response.data : undefined,
-    };
-  } catch (error) {
+    const response = await axios.get(
+      `${backendUrl}/server/session`,
+      request_headers
+    );
+    console.log("session response::", response);
+    return response.data;
+  } catch (error: any) {
     console.log(error);
-    return { status: false, data: error ? error : undefined };
+    return error;
   }
 };
 

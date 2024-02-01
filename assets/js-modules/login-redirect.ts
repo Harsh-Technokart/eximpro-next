@@ -1,4 +1,5 @@
-const rerouter = (res: any, router: any) => {
+export const rerouter = (res: any, router: any) => {
+  console.log("response: ", res);
   switch (res.data.user_type) {
     case "ORB_OWNER":
       router.push("/systum-users/exim-owner");
@@ -34,7 +35,6 @@ const rerouter = (res: any, router: any) => {
       router.push("/company-users/hedger");
       break;
     default:
-      router.push("/404");
       break;
   }
 };

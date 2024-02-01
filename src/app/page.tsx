@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Links from "../../components/Links";
 import { Button } from "@mui/material";
 import { login } from "../../assets/API/login";
 import { useRouter } from "next/navigation";
+import { rerouter } from "../../assets/js-modules/login-redirect";
 
 export default function SystemUsers() {
   const [email, setEmail] = useState("");
@@ -42,15 +42,6 @@ export default function SystemUsers() {
         />
         <Button type="submit">Submit</Button>
       </form>
-
-      <p>
-        This page should ideally be a login page. If the user does navigate to
-        this link and has appropriate cookies, redirect to the appropriate
-        dashboard via them login cookies.
-      </p>
-      <br />
-      <p>If the page is unable to redirect, choose your role below:</p>
-      <Links />
     </div>
   );
 }
