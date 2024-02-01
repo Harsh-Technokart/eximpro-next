@@ -1,7 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -10,8 +9,7 @@ import TableRowsIcon from "@mui/icons-material/TableRows";
 import AccessibleForwardIcon from "@mui/icons-material/AccessibleForward";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Avatar from "@mui/material/Avatar";
-import { logout, checksession } from "../assets/API/login";
-import { rerouter } from "../assets/js-modules/login-redirect";
+import { logout } from "../assets/API/login";
 import { useRouter } from "next/navigation";
 import "../assets/CSS/sidebar.styles.css";
 
@@ -50,18 +48,18 @@ function Sidebar(props) {
               </ListItem>
             ))}
           </ul>
-          <ListItemButton>
+          <ListItemButton onClick={
+            async () => {
+              console.log("Logging out...");
+              await logout().then(() => {
+                router.push("/");
+              })
+            }
+          } >
             <ListItemIcon>
               <LogoutIcon />
             </ListItemIcon>
-            <p className="list-item-text" onClick={
-              async () => {
-                console.log("Logging out...");
-                await logout()
-                const session_status = await checksession()
-                rerouter(session_status, router)
-              }
-            } >Logout</p>
+            <p className="list-item-text">Logout</p>
           </ListItemButton>
         </Drawer>
       </React.Fragment>

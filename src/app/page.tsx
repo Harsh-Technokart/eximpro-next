@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import { login, checksession } from "../../assets/API/login";
 import { useRouter } from "next/navigation";
 import { rerouter } from "../../assets/js-modules/login-redirect";
+import "../../assets/CSS/login.page.css";
 
 export default function SystemUsers() {
   const [email, setEmail] = useState("");
@@ -38,24 +39,46 @@ export default function SystemUsers() {
   }, []);
 
   return (
-    <div>
-      <form onSubmit={handleUserSignIn}>
-        <input
-          id="email"
-          type="text"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          id="password"
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
+    <div className="page">
+      <div className="login-form-div">
+        <form className="login-form-itself" onSubmit={handleUserSignIn}>
+          <h1 className="filler-over-login-page">Exim Pro</h1>
+          <h3 className="login-form-heading">Login</h3>
+          <input
+            className="login-textbox"
+            id="email"
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="login-textbox"
+            id="password"
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="submit-button-coverup">
+            <Button type="submit" className="submit-button" variant="contained">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
+      <div className="filler">
+        <h1 className="filler-text">Exim Pro</h1>
+        <h3 className="filler-sub-text">
+          Point Number 1 why you should use this
+        </h3>
+        <h3 className="filler-sub-text">
+          Point Number 2 why you should use this
+        </h3>
+        <h3 className="filler-sub-text">
+          Point Number 3 why you should use this
+        </h3>
+      </div>
     </div>
   );
 }
