@@ -19,7 +19,7 @@ export const login = async (creds: {
 }> => {
   try {
     const response = await axios.post(
-      `${backendUrl}/server/login`,
+      `${backendUrl}/login`,
       {
         email_address: creds.email_or_employee,
         password: creds.password,
@@ -46,10 +46,7 @@ export const checksession = async (): Promise<{
   };
 }> => {
   try {
-    const response = await axios.get(
-      `${backendUrl}/server/session`,
-      request_headers
-    );
+    const response = await axios.get(`${backendUrl}/session`, request_headers);
     console.log("session response::", response);
     return response.data;
   } catch (error: any) {

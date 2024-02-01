@@ -15,9 +15,7 @@ export default function RootLayout({
       try {
         const session_status: { status: boolean; data: undefined | object } =
           await checksession();
-        if (session_status?.status) {
-          rerouter(session_status, router);
-        }
+        rerouter(session_status, router);
       } catch (error) {
         console.log(error);
       }

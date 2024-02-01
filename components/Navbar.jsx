@@ -4,11 +4,14 @@ import Sidebar from "./Sidebar";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Avatar } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
+import { useRouter } from "next/navigation";
+import { logout, checksession } from "../assets/API/login";
+import { rerouter } from "../assets/js-modules/login-redirect";
 import "../assets/CSS/navbar.styles.css";
 
 function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
-
+  const router = useRouter()
   //! these details should ideally come from the session storage
   const userDetails = {
     name: "Javed",
@@ -48,10 +51,12 @@ function Navbar() {
                 clearTimeout(timeout);
                 setIsHovered(false);
               }}
-              onClick={() => {
+              onClick={async () => {
                 if (isHovered) {
                   console.log("Logging out...");
-                  // Add logout logic here
+                  await logout()
+                  const session_status = await checksession()
+                  rerouter(session_status, router)
                 }
               }}
               className={isHovered ? "avatar-hovered" : "avatar-unhovered"}
