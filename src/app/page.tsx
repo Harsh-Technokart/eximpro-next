@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
+import Loader from "@mui/material/CircularProgress";
 import { login, checksession } from "../../assets/API/login";
 import { useRouter } from "next/navigation";
 import { rerouter } from "../../assets/js-modules/login-redirect";
@@ -9,15 +10,23 @@ import "../../assets/CSS/login.page.css";
 export default function SystemUsers() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const router = useRouter();
 
   const handleUserSignIn = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setButtonDisabled(true);
+    setIsLoading(true);
     const creds = {
       email_or_employee: email,
       password: password,
     };
-    const res = await login(creds);
+    const res = await login(creds).then((res) => {
+      setIsLoading(false);
+      setButtonDisabled(false);
+      return res;
+    });
     sessionStorage.setItem("creds", JSON.stringify(res.data));
     if (res.status) {
       rerouter(res, router);
@@ -37,6 +46,12 @@ export default function SystemUsers() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (email !== "" && password !== "") {
+      setButtonDisabled(false);
+    }
+  }, [email, password]);
 
   return (
     <div className="page">
@@ -61,8 +76,17 @@ export default function SystemUsers() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="submit-button-coverup">
-            <Button type="submit" className="submit-button" variant="contained">
-              Submit
+            <Button
+              type="submit"
+              disabled={buttonDisabled}
+              className="submit-button"
+              variant="contained"
+            >
+              {isLoading ? (
+                <Loader sx={{ height: "20px", width: "auto" }} />
+              ) : (
+                "Submit"
+              )}
             </Button>
           </div>
         </form>

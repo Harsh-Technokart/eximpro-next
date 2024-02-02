@@ -3,7 +3,7 @@
   width: 100vw;
   justify-content: space-between;
   padding: 1rem 0rem;
-  background-color: #bae1ff;
+  background-color: #a5d8ff;
 }
 
 .user-details {
@@ -52,11 +52,11 @@
 }
 
 .avatar-hovered .logout {
-  color: #bebfff;
+  color: #a5d8ff;
   background-color: #282622; /* Change the color to match your design */
 }
 
 .avatar-unhovered .logout {
   color: rgb(0, 0, 0);
-  background-color: #bebfff; /* Change the color to match your design */
+  background-color: #a5d8ff; /* Change the color to match your design */
 }

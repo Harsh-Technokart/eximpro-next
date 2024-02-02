@@ -65,7 +65,7 @@ function Navbar() {
                 }
               }}
               className={isHovered ? "avatar-hovered" : "avatar-unhovered"}
-              sx={{ bgcolor: isHovered ? "#282622" : "#bebfff" }}
+              sx={{ bgcolor: isHovered ? "#282622" : "#a5d8ff" }}
             >
               {isHovered ? (
                 <LogoutIcon className="logout" />
