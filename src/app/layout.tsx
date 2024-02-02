@@ -1,8 +1,4 @@
-"use client";
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { checksession } from "../../assets/API/login";
-import { rerouter } from "../../assets/js-modules/login-redirect";
+import Routeguard from "../../components/root/Routeguard";
 import "../../assets/CSS/root.css";
 
 export default function RootLayout({
@@ -10,24 +6,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const session_status: { status: boolean; data: undefined | object } =
-          await checksession();
-        rerouter(session_status, router);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Routeguard>{children}</Routeguard>
+      </body>
     </html>
   );
 }

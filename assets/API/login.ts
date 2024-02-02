@@ -38,10 +38,10 @@ export const checksession = async (): Promise<{
   data: {
     email_address: string;
     _id: string;
-    user_type: string | null | undefined;
-    user_rights: string | null | undefined;
-    org_company_id: string | null | undefined;
-    name: string | null | undefined;
+    user_type: string;
+    user_rights: string;
+    org_company_id: string;
+    name: string;
     categories: Array<string>;
   };
 }> => {
