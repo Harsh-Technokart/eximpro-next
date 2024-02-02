@@ -6,6 +6,10 @@
   background-color: #a5d8ff;
 }
 
+.navbar-parent {
+  height: 10vh;
+}
+
 .user-details {
   display: flex;
   text-align: right;

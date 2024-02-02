@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { logout, checksession } from "../assets/API/login";
 import { rerouter } from "../assets/js-modules/login-redirect";
 import { user_type_formatter } from "../assets/js-modules/data-formatter";
-import "../assets/CSS/navbar.styles.css";
+import "../assets/CSS/navbar.component.css";
 
 function Navbar() {
   const [isHovered, setIsHovered] = useState(false);

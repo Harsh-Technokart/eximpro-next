@@ -11,7 +11,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Avatar from "@mui/material/Avatar";
 import { logout } from "../assets/API/login";
 import { useRouter } from "next/navigation";
-import "../assets/CSS/sidebar.styles.css";
+import "../assets/CSS/sidebar.component.css";
 
 function Sidebar(props) {
   const [state, setState] = React.useState(false);

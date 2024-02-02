@@ -1,0 +1,21 @@
+.card {
+  border: 0.5px solid darkgray;
+  margin: 1rem;
+  background-color: beige;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  background-color: #a5d8ff;
+  filter: drop-shadow(0px 5px 1rem #6d6d6d);
+}
+
+.card-logo {
+  margin: 0rem 0rem 1rem 0rem;
+}
