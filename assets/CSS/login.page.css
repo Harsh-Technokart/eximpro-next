@@ -90,9 +90,9 @@
 .submit-button {
   width: 100px;
   height: 40px;
-  border: 0.5px solid #12263a;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
+  border: 0.5px solid #12263a;
   background-color: #1971c2;
   margin: 1rem;
 }

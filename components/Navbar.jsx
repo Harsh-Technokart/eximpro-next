@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import Sidebar from "./Sidebar";
+import React, { useEffect, useState } from "react";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Avatar } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
@@ -8,23 +7,28 @@ import { useRouter } from "next/navigation";
 import { logout, checksession } from "../assets/API/login";
 import { rerouter } from "../assets/js-modules/login-redirect";
 import { user_type_formatter } from "../assets/js-modules/data-formatter";
+import Sidebar from "./Sidebar";
 import "../assets/CSS/navbar.component.css";
 
 function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter()
-  let credentials = sessionStorage.getItem("creds")
-  console.log("credentials:perspective-navbar:", credentials)
-  console.log("type:", typeof (credentials))
-  credentials = JSON.parse(credentials)
-  console.log("credentials:perspective-navbar;postparsing:", credentials)
-  const userDetails = {
-    ...credentials,
-    user_type: user_type_formatter(credentials.user_type),
-    get initial() {
-      return this.name.split("")[0];
-    },
-  };
+  const [credentials, setCredentials] = useState({});
+  const [userDetails, setUserDetails] = useState({});
+
+  useEffect(() => {
+    setCredentials(() => {
+      const storedCredentials = sessionStorage.getItem("creds");
+      return storedCredentials ? JSON.parse(storedCredentials) : null;
+    })
+    setUserDetails({
+      ...credentials,
+      user_type: user_type_formatter(credentials?.user_type || ""),
+      get initial() {
+        return this.name?.split("")[0] || "";
+      },
+    })
+  }, [credentials, userDetails])
 
   let timeout;
   return (

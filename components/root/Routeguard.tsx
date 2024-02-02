@@ -17,6 +17,7 @@ function Routeguard({ children }: { children: React.ReactNode }) {
   const session_check = useCallback(async () => {
     const session_status = await checksession();
     if (session_status.status) {
+      sessionStorage.setItem("creds", JSON.stringify(session_status.data));
       const userTypePaths = userTypesPaths[session_status.data.user_type];
       if (userTypePaths) {
         const allowedPaths = userTypePaths.split("/");

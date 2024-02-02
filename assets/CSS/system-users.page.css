@@ -1,0 +1,41 @@
+.system-users-topbar {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  width: 40vw;
+  padding: 0.25rem 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box {
+  padding: 0.25rem 1rem;
+  margin: 0.5rem 0rem;
+  font-size: 1.25rem;
+  border-radius: 7px;
+  border: 0.5px solid #cdd7e1;
+}
+
+.select {
+  padding: 0.25rem 1rem;
+  margin: 1rem;
+  height: 95%;
+}
+
+.select-dropdown {
+  margin: 0.5rem 0rem;
+}
+
+.create-new-button {
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  border: 0.5px solid #12263a;
+  background-color: #1971c2;
+  color: white;
+}
