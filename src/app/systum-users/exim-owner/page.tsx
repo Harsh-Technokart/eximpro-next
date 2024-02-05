@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import AccessibleForwardIcon from "@mui/icons-material/AccessibleForward";
 import Card from "../../../../components/landing-page/card";
 import "../../../../assets/CSS/dashboard.page.css";
 
 export default function EximOwnerDashboard() {
-  console.log(sessionStorage.getItem("creds"));
+  useEffect(() => {
+    console.log(sessionStorage.getItem("creds"));
+  });
   return (
     <div className="dashboard">
       <div className="deck-o-cards">
