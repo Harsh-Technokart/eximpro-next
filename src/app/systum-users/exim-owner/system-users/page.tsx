@@ -1,57 +1,52 @@
-import React from "react";
-import Select from "@mui/joy/Select";
-import Option from "@mui/joy/Option";
-import "../../../../assets/CSS/system-users.page.css";
+"use client";
+import React, { useEffect, useState } from "react";
+import Topbar from "@/components/system-users/exim-owner/topbar";
+import { getSystemUsers } from "@/assets/API/system-users";
+import "@/assets/CSS/system-users.page.css";
+import Table from "@/components/system-users/exim-owner/table";
+
+interface SystemUserObject {
+  _id: string;
+  name: string;
+  email_address: string;
+  active: boolean;
+  mobile_number: string;
+  password: string;
+  password_set: boolean;
+  approval_status: boolean;
+  action_taken_time: Date | null;
+  password_set_link: string | undefined;
+  password_reset_link: string | undefined;
+  org_company_id: string;
+  user_type: string;
+  user_rights: string | null;
+  user_status: string;
+  creation_time: Date;
+  emp_id: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 function SystemUsers() {
+  const [listOfSystemUser, setListOfSystemUser] = useState<
+    Array<SystemUserObject>
+  >([]);
+  const systemList = async () => {
+    const listofusers = await getSystemUsers();
+    if (listofusers.status) {
+      setListOfSystemUser(listofusers.data.docs);
+    }
+  };
+  useEffect(() => {
+    systemList();
+  }, []);
+  useEffect(() => {
+    console.log("listOfSystemUser:", listOfSystemUser);
+  }, []);
   return (
     <div>
-      <div className="system-users-topbar">
-        <label className="search">
-          search system users
-          <input type="text" className="search-box" />
-        </label>
-        <label className="select">
-          filter by approval
-          <Select
-            defaultValue="value-00"
-            className="select-dropdown"
-            name="filter-00"
-            id=""
-          >
-            <Option value="value-00">option 00</Option>
-            <Option value="value-01">option 01</Option>
-            <Option value="value-02">option 02</Option>
-          </Select>
-        </label>
-        <label className="select">
-          filter by approval
-          <Select
-            defaultValue="value-00"
-            className="select-dropdown"
-            name="filter-00"
-            id=""
-          >
-            <Option value="value-00">option 00</Option>
-            <Option value="value-01">option 01</Option>
-            <Option value="value-02">option 02</Option>
-          </Select>
-        </label>
-        <label className="select">
-          filter by approval
-          <Select
-            defaultValue="value-00"
-            className="select-dropdown"
-            name="filter-00"
-            id=""
-          >
-            <Option value="value-00">option 00</Option>
-            <Option value="value-01">option 01</Option>
-            <Option value="value-02">option 02</Option>
-          </Select>
-        </label>
-        <button className="create-new-button">Create New</button>
-      </div>
+      <Topbar />
+      <Table listOfSystemUser={listOfSystemUser} />
     </div>
   );
 }
