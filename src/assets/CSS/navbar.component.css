@@ -3,7 +3,12 @@
   width: 100vw;
   justify-content: space-between;
   padding: 1rem 0rem;
-  background-color: #a5d8ff;
+  /* background-color: #a5d8ff; */
+  background: linear-gradient(
+    to right bottom,
+    rgba(165, 216, 255, 0.7),
+    rgba(165, 216, 255, 0.2)
+  );
 }
 
 .navbar-parent {

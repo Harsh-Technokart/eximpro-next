@@ -53,42 +53,40 @@ function LoginForm() {
     }
   }, [email, password]);
   return (
-    <>
-      <form className="login-form-itself" onSubmit={handleUserSignIn}>
-        <h1 className="filler-over-login-page">Exim Pro</h1>
-        <h3 className="login-form-heading">Login</h3>
-        <input
-          className="login-textbox"
-          id="email"
-          type="text"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          className="login-textbox"
-          id="password"
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="submit-button-coverup">
-          <Button
-            type="submit"
-            disabled={buttonDisabled}
-            className="submit-button"
-            variant="contained"
-          >
-            {isLoading ? (
-              <Loader sx={{ height: "20px", width: "auto" }} />
-            ) : (
-              "Submit"
-            )}
-          </Button>
-        </div>
-      </form>
-    </>
+    <form className="login-form-itself" onSubmit={handleUserSignIn}>
+      <h1 className="filler-over-login-page">Exim Pro</h1>
+      <h3 className="login-form-heading">Login</h3>
+      <input
+        className="login-textbox"
+        id="email"
+        type="text"
+        placeholder="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        className="login-textbox"
+        id="password"
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <div className="submit-button-coverup">
+        <Button
+          type="submit"
+          disabled={buttonDisabled}
+          className="submit-button"
+          variant="contained"
+        >
+          {isLoading ? (
+            <Loader sx={{ height: "20px", width: "auto" }} />
+          ) : (
+            "Submit"
+          )}
+        </Button>
+      </div>
+    </form>
   );
 }
 

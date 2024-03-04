@@ -46,7 +46,7 @@ export const checksession = async (): Promise<{
   };
 }> => {
   try {
-    const response = await axios.get(`${backendUrl}/login`, request_headers);
+    const response = await axios.get(`${backendUrl}/session`, request_headers);
     console.log("session response::", response);
     return response.data;
   } catch (error: any) {

@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
-import "../../../../../assets/CSS/system-users.page.css";
+import "../../../../assets/CSS/system-users.page.css";
 
 function SystemUsers() {
   return (

@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
 import AccessibleForwardIcon from "@mui/icons-material/AccessibleForward";
-import Card from "../../../../components/landing-page/card";
-import "../../../../assets/CSS/dashboard.page.css";
+import Card from "../../../components/landing-page/card";
+import "../../../assets/CSS/dashboard.page.css";
 
 export default function EximOwnerDashboard() {
   useEffect(() => {

@@ -1,5 +1,5 @@
-import Routeguard from "../../components/root/Routeguard";
-import "../../assets/CSS/root.css";
+import Routeguard from "../components/root/Routeguard";
+import "../assets/CSS/root.css";
 
 export default function RootLayout({
   children,
